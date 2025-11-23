@@ -1,0 +1,25 @@
+package com.example.tokenvalidator;
+
+import org.junit.jupiter.api.Test;
+
+public class TokenValidatorTest {
+    @Test
+    public void testInvalidJWT() {
+
+        String jwt = "eyJ4NXQiOiJOVm1mWDBtRUNsYTlRVl9MUHZtdkEyS0VvSTQ9Iiwia2lkIjoiand0c2lnbmVydnRlIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJpc3MiOiJodHRwczovL3Byb3ZpZGVyLnZ0ZS5laGVhbHRob250YXJpby5jYSIsInN1YiI6IkhSTV9RQSIsImlhdCI6MTc2MzQ5MzE4MiwiZXhwIjoxNzk1MDI5MjEyLCJuYmYiOjE3NjM0OTMxODIsImp0aSI6Ijk3OWJkNGZjLWU1OWItNGUyNC1hNjBkLTliN2NiOWNlMDViOCIsInVhbyI6IjIuMTYuODQwLjEuMTEzODgzLjMuMjM5Ljk6MTU5MzU5NDU2MDU0IiwidWFvVHlwZSI6Ik9yZ2FuaXphdGlvbiIsInVhb05hbWUiOiJOb3J0aCBZb3JrIEdlbmVyYWwiLCJnaXZlbl9uYW1lIjoiZWhvIiwiZmFtaWx5X25hbWUiOiJQQ09JIiwiZW1haWwiOiJwY29pQGVoZWFsdGhvbnRhcmlvLm9uLmNhIiwib2JvIjoiMi4xNi44NDAuMS4xMTM4ODMuNC4zNDc6NDU2IiwiY2xpZW50X2lkIjoiaHR0cHM6Ly9vbGlzdmlld2xldC5laGVhbHRob250YXJpby5jYSIsInVzZXJuYW1lIjoidGVzdDEub2F1Z3RocGFydG5lckBvbmVpZC5vbi5jYSIsImNvbnRleHRTZXNzaW9uSWQiOiI1NDQzMjM0MzQzMjQzNDMyIiwidG9rZW5OYW1lIjoiYWNjZXNzX3Rva2VuIiwidG9rZW5fdHlwZSI6IkJlYXJlciIsImN0cyI6Ik9BVVRIMl9TVEFURUxFU1NfR1JBTlQiLCJhdXRoX2xldmVsIjowLCJhdWRpdFRyYWNraW5nSWQiOiJlMGE1YmQ2OC04NjU1LTQxNzctOGIwNy1lZjcxYzhhOGNiNjMtMzc4OTcyIiwiYXV0aEdyYW50SWQiOiJzb21lIHJhbmRvbSBpZCB5b3UgbGlrZSBvciBkaXNsaWtlIiwibm9uY2UiOiIzNDMyNDIzMDQ4MzI0MDkzMjk4NDAzMjA0MzIwIiwicmVhbG0iOiIvaWRhYXNvaWRjIiwiZ3JhbnRfdHlwZSI6ImF1dGhvcml6YXRpb25fY29kZSIsImFwcCI6IlBDT0lDbGllbnRBcHBsaWNhdGlvbiIsImFwcHZlcnNpb24iOiJhcHB2NSIsImFwcFZlcnNpb24iOiJhcHB2NSIsImlkcCI6IjIuMTYuODQwLjEuMTEzODgzLjMuMjM5LjIzLjk5OTk5IiwicHJuIjoidGhpcyBpcyBwcm4gZmllbGQiLCJhenAiOiJBcHBsaWNhdGlvbiIsIkROIjoiQ049QkxVRVdBVEVSMS5OT0RFLE9VPUFwcGxpY2F0aW9ucyxPVT1lSGVhbHRoVXNlcnMsT1U9U3Vic2NyaWJlcnMsREM9c3Vic2NyaWJlcnMsREM9c3NoIiwicmlkIjpbIkNQU086NTQ1MzUiXSwiYXVkIjoiaHR0cHM6Ly9ocm0ub250YXJpb21kLmNhIiwic2NvcGUiOlsic3lzdGVtL0J1bmRsZS53cml0ZSJdLCJjZXJ0VGh1bWJQcmludCI6IjM1NTk5RjVGNDk4NDBBNTZCRDQxNUZDQjNFRjlBRjAzNjI4NEEwOEUiLCJhcGlfa2V5cyI6WyIwczBJakRJR25pRXpoeWU2eFFGeGFLWk5xam13bGVPRmpYdjFFRS8zWk9vPSJdfQ.jI4_0Q874pYDChYSrYXvnRafOzD1UOOgpwE3sypVYphjqXhUZpJZwdSTyq7MFI8ILHmyFZSxUsq2xs50jUwDuBE01C6YRpX3K5xCWwwTnl6tXEuvEP9qiGumpN8w9PW7KtPrbmqTXEbUDbDny4ftFSPJN5Omw0Af-MODPeSOujfgi77HAgZ3qv5Raszfx5RyTFE42YFu8r4ZFM9ETVOAd8i1-kYcfn-TzFBjBAfYAsK9e_QwPrnR7NAlYDJZsTovp7yc3Xk9bOFhtzCqwGU1hwEhNC7jIVKM2nldOeO27niUVQX6Ec2f71izCbtub9HRo7QK1LOwjV2DkzCkg8kMUQ";
+
+        try {
+        JWKSFetcher fetcher = new JWKSFetcher(
+            "https://provider.pst.ontariohealth.ca/api2/public/configuration/.well-known/jwks.json", "27eede387ca725b9906862cdb1c68b9d");
+
+            TokenValidator validator = new TokenValidator(fetcher.fetchJWKS());
+            boolean valid = validator.validate(jwt);
+            System.out.println(valid ? "Valid" : "Invalid");
+        } 
+        catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());
+            System.exit(2);
+        }
+
+    }
+}

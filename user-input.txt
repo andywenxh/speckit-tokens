@@ -1,0 +1,13 @@
+speckit/specify create a java application to validate given jwt token against a jwks url, and tell the user what is the result, its valid or invalid.
+speckit/plan use java 17 to build this application, and use maven as project build tool.
+speckit/clarify when access the jwks, i need to provide jwks url from command line
+speckit/clarify user will need to provider 3 parameter: jwks url, the x-gtwy-client-id value and the token from command line
+
+speckit.analyze
+speckit.tasks
+speckit.implement
+
+speckit.clarify when maven build the jar, all library referenced need to be packed into the jar
+speckit.clarify during the token validation, the application need to also print out the following information: token headers, token claims, which key is used to verify the token
+
+speckit.implement
