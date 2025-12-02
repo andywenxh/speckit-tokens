@@ -11,3 +11,9 @@ speckit.clarify when maven build the jar, all library referenced need to be pack
 speckit.clarify during the token validation, the application need to also print out the following information: token headers, token claims, which key is used to verify the token
 
 speckit.implement
+
+
+
+
+
+here is the case, i have a microservice, this microservicec expose 5 operations, each operation will invoke different method on the same backend. and when invoke backend, an authorization header is required. this token can be shared among those operation handlers, and token can expire after some time. if token not exist, microservice need to call a token service to get one, when token will get expired, the microserevice will have to call token service to refresh token. give me a good solution to maintain the token in this microservice.
