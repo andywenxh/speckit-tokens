@@ -1,0 +1,34 @@
+openapi: 3.0.3
+info:
+  title: Invoke Service API
+  version: 1.0.0
+
+paths:
+  /invoke:
+    post:
+      summary: Invoke backend operation
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: false
+      responses:
+        "200":
+          description: Successful invocation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        "401":
+          description: Unauthorized
+        "500":
+          description: Server error
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
